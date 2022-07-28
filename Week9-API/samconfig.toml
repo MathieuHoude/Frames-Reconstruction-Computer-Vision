@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "Week9-API"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1amm030mus3dd"
+s3_prefix = "Week9-API"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["InferenceFunction=187426171806.dkr.ecr.us-east-1.amazonaws.com/week9apifa7cb358/inferencefunction7c73919drepo"]

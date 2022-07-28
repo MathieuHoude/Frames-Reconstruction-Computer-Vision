@@ -21,7 +21,7 @@ endpoint = "https://smartjourney-week9.cognitiveservices.azure.com/"
 
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
-base_path = "/home/mathieuhoude/source/SmartJourneyWeek9/frames/"
+base_path = "/home/mathieuhoude/source/MathieuHoude/SmartJourneyWeek9/frames/"
 frames = [f for f in listdir(base_path) if isfile(join(base_path, f))]
 
 def format_date(string):
@@ -198,12 +198,8 @@ def extract_date_and_frame_number():
             results.append({'filename': frame, 'date': 'Invalid', 'frame': 'Invalid'})
     df = pd.DataFrame(results)
     df.to_csv('./results.csv')
-    # df["date"] = pd.to_datetime(df["date"], errors='ignore')
-    # df = df.sort_values(by="date")
-    # df.to_csv('./results.csv')
 
 def build_video_from_frames():
-    df = pd.read_csv('./results.csv')
     df = pd.read_csv('./results.csv', index_col=[0])
     dates = df['date'].unique()
     for date in dates:
@@ -220,5 +216,5 @@ def build_video_from_frames():
         cv2.destroyAllWindows() 
         video.release()
 
-extract_date_and_frame_number()
-# build_video_from_frames()
+# extract_date_and_frame_number()
+build_video_from_frames()
